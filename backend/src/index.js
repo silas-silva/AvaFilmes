@@ -26,12 +26,13 @@ app.get("/movies/page/:num", async (request, response) => {
     let page = request.params.num;
     let offset = 0;
     const limit = 9
-    //check if the variable received a number, or a number less than 1
-    if ( !isNaN(page) || page < 1) {
+    //check if the variable has number less than 1
+    if (page < 1) {
         // add value 1 in page
         page = 1
     }
-    if (page == 1) { //if the variable has the number 1
+    if (isNaN(page) || page == 1) { //if the variable has the number 1, or is not a number
+        page = 1;
         offset = 0;
     } else { //if the variable is a number greater than 1
         offset = (parseInt(page) - 1) * limit
@@ -55,7 +56,6 @@ app.get("/movies/page/:num", async (request, response) => {
 //Get a movie
 app.get("/movies/:id", (request, response) => {
     const { id } = request.params;
-
     database.select().table("movies").where({ id }).then(dados => {
         return response.status(200).send(dados);
     }).catch(err => {
