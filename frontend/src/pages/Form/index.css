@@ -51,7 +51,7 @@
     height: 40px;
     border: none;
     border-radius: 4px;
-    background-image: linear-gradient(to left , var(--color-primary) , var(--color-second));
+    background-image: linear-gradient(to left , var(--color-one) , var(--color-two));
     color: white;
     font-weight: 700;
 }

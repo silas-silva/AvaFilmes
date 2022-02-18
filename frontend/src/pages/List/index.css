@@ -1,0 +1,36 @@
+.cards-movies{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.next-preview-page{
+    margin: 20px auto 0 auto;
+
+    text-align: center;
+}
+
+.next-preview-page div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.next-preview-page span{
+    display: block;
+    margin: 0 15px 0 15px;
+    color: var(--color-primary);
+}
+
+.spin-arrow{
+    transform: rotate(180deg);
+    margin-top: -9px;
+}
+
+.next-preview-page div a{
+    cursor: pointer;
+}
+
+.next-preview-page div .arrowDisable{
+    cursor: default;
+}

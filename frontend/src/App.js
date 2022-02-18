@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-//import Listagem from "./pages/Listagem";
-//import Formulario from "./pages/Formulario";
+import List from "./pages/List";
+import Form from "./pages/Form";
 import Header from "./components/Header";
 
 function App() {
@@ -8,7 +8,12 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
-        
+        <Routes>
+          <Route path="/" element={<List />} />
+          <Route path="/form">
+            <Route path=":movieID" element={<Form />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
     </>
   );

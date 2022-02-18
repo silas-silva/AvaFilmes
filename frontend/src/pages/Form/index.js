@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import API from "../../API";
+import Api from "../../services/Api.js";
 import "./index.css"
 
 function Form() {
@@ -12,7 +12,7 @@ function Form() {
 
   // Get Data
   let getData = async () => {
-    let response = await API.get(`movies/${movieID}`);
+    let response = await Api.get(`movies/${movieID}`);
     setMovie(response.data[0])
     //In setMovie receive an object in format 
     //const filme = {
@@ -26,7 +26,7 @@ function Form() {
 
   //
   async function saveReview() {
-    let save = await API.post(`review/${movieID}`, { email, review: review });
+    let save = await Api.post(`rate/${movieID}`, { email, review });
     setReview("")
     alert(save.data.info)
   }

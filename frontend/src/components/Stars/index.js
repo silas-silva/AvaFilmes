@@ -19,7 +19,7 @@ function setStars(reviews, starArray){
 }
 
 function Stars(props) {
-    let reviews = props.avaliacoes;
+    let reviews = props.reviews;
     let starArray = [];
     
     for(let i = 0; i < 5; i++){
