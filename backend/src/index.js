@@ -46,6 +46,7 @@ app.get("/movies/page/:num", async (request, response) => {
 
     database.select().table("movies").limit(limit).offset(offset).then(movies => {
         // Return status, and datas
+        console.log(movies)
         return response.status(200).send({ page, numPages, movies });
     }).catch(err => {
         //console.log(err);
@@ -85,17 +86,19 @@ app.post("/rate/:id", async (request, response) => {
             return response.status(500).send({ info: "Erro ao buscar Filme, ID invalido" });
         }
 
+        
         if (isMovie.length == 1) { // found movie 
             if (person.length == 1) { // The user already exists will only post the review
-                const id_user = data[0].id; //Get id user
+                const id_user = person[0].id; //Get id user
 
                 // Has user rated this movie?
                 const alreadyRated = await database.select().table("reviewmovies").where({ id_user, id_movie });
 
                 if (alreadyRated.length == 1) { // If this movie has been rated, only the review will change.
+                    
                     await database.update({ review }).table('reviewmovies').where({ id_user, id_movie });
 
-                    const average = await database.avg("nota as review").table("reviewmovies").where({ id_movie }); // Get the average movie review 
+                    const average = await database.avg("review as review").table("reviewmovies").where({ id_movie }); // Get the average movie review 
                     const noteReview = average[0].review;
                     await database.update({ noteReview }).table("movies").where({ "id": id_movie }) //update the review in DB
 
@@ -104,11 +107,11 @@ app.post("/rate/:id", async (request, response) => {
                 } else { //The user has not yet rated this movie. link the user to the movie and add the review
                     await database.insert({ id_user, id_movie, review }).into('reviewmovies'); //link the user to the movie and add the review
 
-                    let numReviews = await database.count("id_filme as numReviews").table("reviewmovies").where({ id_movie }); //Get number reviews the movie has
+                    let numReviews = await database.count("id_movie as numReviews").table("reviewmovies").where({ id_movie }); //Get number reviews the movie has
                     numReviews = numReviews[0].numReviews
                     await database.update({ numReviews }).table("movies").where({ "id": id_movie }) //update data in DB        
 
-                    const average = await database.avg("nota as review").table("reviewmovies").where({ id_movie }); // Get the average movie review 
+                    const average = await database.avg("review as review").table("reviewmovies").where({ id_movie }); // Get the average movie review 
                     const noteReview = average[0].review;
                     await database.update({ noteReview }).table("movies").where({ "id": id_movie }) //update the review in DB    
 
@@ -121,11 +124,11 @@ app.post("/rate/:id", async (request, response) => {
                 const id_user = user[0].id; //Get id of the new user
                 await database.insert({ id_user, id_movie, review }).into('reviewmovies'); // link the user to the movie and add the review
 
-                let numReviews = await database.count("id_filme as numReviews").table("reviewmovies").where({ id_movie }); //Get number reviews the movie has
+                let numReviews = await database.count("id_movie as numReviews").table("reviewmovies").where({ id_movie }); //Get number reviews the movie has
                 numReviews = numReviews[0].numReviews
                 await database.update({ numReviews }).table("movies").where({ "id": id_movie }) //update data in DB            
 
-                const average = await database.avg("nota as review").table("reviewmovies").where({ id_movie }); // Get the average movie review 
+                const average = await database.avg("review as review").table("reviewmovies").where({ id_movie }); // Get the average movie review 
                 const noteReview = average[0].review;
                 await database.update({ noteReview }).table("movies").where({ "id": id_movie }) //update the review in DB  
 
