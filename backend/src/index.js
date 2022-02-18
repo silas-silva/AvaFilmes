@@ -52,6 +52,16 @@ app.get("/movies/page/:num", async (request, response) => {
     });
 });
 
+//Get a movie
+app.get("/movies/:id", (request, response) => {
+    const { id } = request.params;
+
+    database.select().table("filmes").where({ id }).then(dados => {
+        return response.status(200).send(dados);
+    }).catch(err => {
+        return response.status(500).send({err});
+    });
+});
 
 //End of Routes
 
