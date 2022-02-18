@@ -38,14 +38,14 @@ app.get("/movies/page/:num", async (request, response) => {
     }
 
     //this block get number of pages with movies
-    let numMovies = await database.count("id as filmes").table("filmes"); // Getting the number of movies from the DB
+    let numMovies = await database.count("id as movies").table("movies"); // Getting the number of movies from the DB
     // number of pages with movies there are, Math.ceil return the integer may or equal to X, EX: Math.ceil(1.9) return 2 
-    numPages = Math.ceil(numMovies[0].filmes / 9)
+    numPages = Math.ceil(numMovies[0].movies / 9)
     //End block
 
-    database.select().table("filmes").limit(limit).offset(offset).then(filmes => {
+    database.select().table("movies").limit(limit).offset(offset).then(movies => {
         // Return status, and datas
-        return response.status(200).send({ page, numPages, filmes });
+        return response.status(200).send({ page, numPages, movies });
     }).catch(err => {
         //console.log(err);
         return response.status(500).send({err});
@@ -56,7 +56,7 @@ app.get("/movies/page/:num", async (request, response) => {
 app.get("/movies/:id", (request, response) => {
     const { id } = request.params;
 
-    database.select().table("filmes").where({ id }).then(dados => {
+    database.select().table("movies").where({ id }).then(dados => {
         return response.status(200).send(dados);
     }).catch(err => {
         return response.status(500).send({err});
@@ -76,11 +76,11 @@ app.post("/rate/:id", async (request, response) => {
 
     try {
         //Search for a user with a specific email in the DB
-        const person = await database.select().table("usuarios").where({ email });
+        const person = await database.select().table("users").where({ email });
         let isMovie;
         try {
             //Search movie 
-            isMovie = await database.select().table("filmes").where({ "id" : id_movie });
+            isMovie = await database.select().table("movies").where({ "id" : id_movie });
         } catch (error) {
             return response.status(500).send({ info: "Erro ao buscar Filme, ID invalido" });
         }
@@ -90,44 +90,44 @@ app.post("/rate/:id", async (request, response) => {
                 const id_user = data[0].id; //Get id user
 
                 // Has user rated this movie?
-                const alreadyRated = await database.select().table("notasfilme").where({ id_user, id_movie });
+                const alreadyRated = await database.select().table("reviewmovies").where({ id_user, id_movie });
 
                 if (alreadyRated.length == 1) { // If this movie has been rated, only the review will change.
-                    await database.update({ review }).table('notasfilme').where({ id_user, id_movie });
+                    await database.update({ review }).table('reviewmovies').where({ id_user, id_movie });
 
-                    const average = await database.avg("nota as review").table("notasfilme").where({ id_movie }); // Get the average movie review 
+                    const average = await database.avg("nota as review").table("reviewmovies").where({ id_movie }); // Get the average movie review 
                     const noteReview = average[0].review;
-                    await database.update({ noteReview }).table("filmes").where({ "id": id_movie }) //update the review in DB
+                    await database.update({ noteReview }).table("movies").where({ "id": id_movie }) //update the review in DB
 
                     return response.status(200).send({ info: "Nota do filme atualizada" });
 
                 } else { //The user has not yet rated this movie. link the user to the movie and add the review
-                    await database.insert({ id_user, id_movie, review }).into('notasfilme'); //link the user to the movie and add the review
+                    await database.insert({ id_user, id_movie, review }).into('reviewmovies'); //link the user to the movie and add the review
 
-                    let numReviews = await database.count("id_filme as numReviews").table("notasfilme").where({ id_movie }); //Get number reviews the movie has
+                    let numReviews = await database.count("id_filme as numReviews").table("reviewmovies").where({ id_movie }); //Get number reviews the movie has
                     numReviews = numReviews[0].numReviews
-                    await database.update({ numReviews }).table("filmes").where({ "id": id_movie }) //update data in DB        
+                    await database.update({ numReviews }).table("movies").where({ "id": id_movie }) //update data in DB        
 
-                    const average = await database.avg("nota as review").table("notasfilme").where({ id_movie }); // Get the average movie review 
+                    const average = await database.avg("nota as review").table("reviewmovies").where({ id_movie }); // Get the average movie review 
                     const noteReview = average[0].review;
-                    await database.update({ noteReview }).table("filmes").where({ "id": id_movie }) //update the review in DB    
+                    await database.update({ noteReview }).table("movies").where({ "id": id_movie }) //update the review in DB    
 
                     return response.status(200).send({ info: "Nota adicionada ao filme" });
                 }
 
             } else { // User does not exist, need to add user in the BD and then add his note to the movie
-                await database.insert({ email }).into('usuarios'); //add user to DB
-                const user = await database.select().table("usuarios").where({ email }); //searching user 
+                await database.insert({ email }).into('users'); //add user to DB
+                const user = await database.select().table("users").where({ email }); //searching user 
                 const id_user = user[0].id; //Get id of the new user
-                await database.insert({ id_user, id_movie, review }).into('notasfilme'); // link the user to the movie and add the review
+                await database.insert({ id_user, id_movie, review }).into('reviewmovies'); // link the user to the movie and add the review
 
-                let numReviews = await database.count("id_filme as numReviews").table("notasfilme").where({ id_movie }); //Get number reviews the movie has
+                let numReviews = await database.count("id_filme as numReviews").table("reviewmovies").where({ id_movie }); //Get number reviews the movie has
                 numReviews = numReviews[0].numReviews
-                await database.update({ numReviews }).table("filmes").where({ "id": id_movie }) //update data in DB            
+                await database.update({ numReviews }).table("movies").where({ "id": id_movie }) //update data in DB            
 
-                const average = await database.avg("nota as review").table("notasfilme").where({ id_movie }); // Get the average movie review 
+                const average = await database.avg("nota as review").table("reviewmovies").where({ id_movie }); // Get the average movie review 
                 const noteReview = average[0].review;
-                await database.update({ noteReview }).table("filmes").where({ "id": id_movie }) //update the review in DB  
+                await database.update({ noteReview }).table("movies").where({ "id": id_movie }) //update the review in DB  
 
                 return response.json({ info: "Nota adicionada ao filme" })
             }
