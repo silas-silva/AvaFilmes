@@ -1,0 +1,27 @@
+header{
+    background-image: linear-gradient(to left , var(--color-one) , var(--color-two));
+    height: 60px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.nav-content{
+    display: flex; 
+    justify-content: space-between;
+}
+
+.nav-content h1{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.nav-content a{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.nav-content a p{
+    margin: 0 0 0 10px;
+}
