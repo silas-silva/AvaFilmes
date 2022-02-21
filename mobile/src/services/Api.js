@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: 'https://ava-filmes.herokuapp.com/'
+    baseURL: 'http://local:3030/'
 });
 
 export default API;
