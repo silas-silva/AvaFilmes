@@ -46,7 +46,6 @@ app.get("/movies/page/:num", async (request, response) => {
 
     database.select().table("movies").limit(limit).offset(offset).then(movies => {
         // Return status, and datas
-        console.log(movies)
         return response.status(200).send({ page, numPages, movies });
     }).catch(err => {
         //console.log(err);
