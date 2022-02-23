@@ -2,11 +2,10 @@
 
 ## Telas
 ### Tela de Listagem
-![Web 1](https://github.com/silas-silva/avaFilmes/assets/img/web1.png)
+![web 1](https://github.com/silas-silva/avaFilmes/blob/main/assets/img/web1.png)
 
 ### Tela de Formulário para Avaliação
-![Web 2](https://github.com/silas-silva/avaFilmes/assets/img/web2.png)
-## Projeto hospedado no Heroku
+![web 2](https://github.com/silas-silva/avaFilmes/blob/main/assets/img/web2.png)## Projeto hospedado no Heroku
 Para Acessar o projeto online [Clique Aqui](https://silas-silva.herokuapp.com/avaMovies)
 
 ## Informações Gerais

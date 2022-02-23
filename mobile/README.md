@@ -2,11 +2,10 @@
 
 ## Telas
 ### Tela de Listagem
-![Mobile 1](https://github.com/silas-silva/avaFilmes/assets/img/mobile1.png)
-![Mobile 2](https://github.com/silas-silva/avaFilmes/assets/img/mobile2.png)
-
+![Mobile 1](https://github.com/silas-silva/avaFilmes/blob/main/assets/img/mobile1.png) ![Mobile 2](https://github.com/silas-silva/avaFilmes/blob/main/assets/img/mobile2.png)
 ### Tela de Formulário para Avaliação
-![Mobile 3](https://github.com/silas-silva/avaFilmes/assets/img/mobile3.png)
+![Mobile 3](https://github.com/silas-silva/avaFilmes/blob/main/assets/img/mobile3.png)
+
 ## Projeto hospedado no Heroku
 Para Acessar o projeto online [Clique Aqui](https://silas-silva.herokuapp.com/avaMovies)
 

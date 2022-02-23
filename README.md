@@ -10,12 +10,12 @@ entre elas o spring boot. Foi desenvolvido o frontend e backend, então decidi a
 
 A aplicação consiste em disponibilizar uma lista de filmes para ser feita avaliações dos mesmos, e com essas avaliações serem exibidas em cada filme
 ## Layout mobile
-![Mobile 1](https://github.com/silas-silva/avaFilmes/assets/img/mobile1.png) ![Mobile 2](https://github.com/silas-silva/avaFilmes/assets/img/mobile2.png) ![Mobile 3](https://github.com/silas-silva/avaFilmes/assets/img/mobile3.png)
+![Mobile 1](https://github.com/silas-silva/avaFilmes/blob/main/assets/img/mobile1.png) ![Mobile 2](https://github.com/silas-silva/avaFilmes/blob/main/assets/img/mobile2.png) ![Mobile 3](https://github.com/silas-silva/avaFilmes/blob/main/assets/img/mobile3.png)
 
 ## Layout web
-![Web 1](https://github.com/silas-silva/avaFilmes/assets/img/web1.png)
+![Web 1](https://github.com/silas-silva/avaFilmes/blob/main/assets/img/web1.png)
 
-![Web 2](https://github.com/silas-silva/avaFilmes/assets/img/web2.png)
+![Web 2](https://github.com/silas-silva/avaFilmes/blob/main/assets/img/mobile1.png)
 
 # Tecnologias utilizadas
 ## Back end
