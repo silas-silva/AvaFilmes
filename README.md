@@ -15,7 +15,7 @@ A aplicação consiste em disponibilizar uma lista de filmes para ser feita aval
 ## Layout web
 ![Web 1](https://github.com/silas-silva/avaFilmes/blob/main/assets/img/web1.png)
 
-![Web 2](https://github.com/silas-silva/avaFilmes/blob/main/assets/img/mobile1.png)
+![Web 2](https://github.com/silas-silva/avaFilmes/blob/main/assets/img/web2.png)
 
 # Tecnologias utilizadas
 ## Back end
