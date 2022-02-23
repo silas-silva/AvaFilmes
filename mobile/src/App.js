@@ -9,19 +9,13 @@
 
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import CardMovie from './Components/CardMovie';
-import Header from './Components/Header';
-import List from './Pages/List';
+
+import Main from './Pages/Main';
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Header />
-      </View>
-      <View style={styles.list}>
-        <List />
-      </View>
+    <View style={styles.container}> 
+      <Main/>
     </View>
   );
 };
@@ -32,13 +26,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#C0C5C1',
-  },
-  header: {
-    height: 50,
-  },
-  list: {
-    flex: 1,
-  }
+},
 });
 
 export default App;

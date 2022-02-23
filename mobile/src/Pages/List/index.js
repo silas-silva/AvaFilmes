@@ -5,7 +5,7 @@ import { FlatList, StyleSheet, View } from 'react-native';
 import API from '../../services/Api';
 import HorizontalList from '../../Components/HorizontalList'
 
-function List() {
+function List({openForm}) {
     const [numPages, setNumPages] = React.useState(1);
 
     let getPages = async () => {
@@ -35,7 +35,7 @@ function List() {
                     showVerticalScrollIndicator={false}
                     data={numPagesArray}            
                     keyExtractor={(item) => item}
-                    renderItem={({item}) => <HorizontalList keyExtractor page={item} />}
+                    renderItem={({item}) => <HorizontalList openForm={openForm}  keyExtractor page={item} />}
                 />
         </View>
     );

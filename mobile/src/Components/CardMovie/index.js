@@ -59,8 +59,8 @@ function CardMovie(props) {
             </View>
 
             <Text style={{ marginTop: 10, color: '#9D4E4B', fontWeight: 'bold' }}>{movie.numReviews}</Text>
-
-            <TouchableOpacity onPress={() => alert('Avalie', { movieID: movie.id })}>
+            
+            <TouchableOpacity onPress={() => props.openForm(movie)}>
                 <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#9D4E4B', '#210E0C']} style={styles.button}>
                     <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 15 }}>Avaliar</Text>
                 </LinearGradient>
