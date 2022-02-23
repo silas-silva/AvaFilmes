@@ -3,12 +3,12 @@
 
 # Sobre o projeto
 
-link para o projeto online
+[link para o projeto online](http://silas-silva.herokuapp.com/avaMovies)
 
 avaFilmes é uma aplicação fullstack web e mobile, a ideia veio da semana dev superior, onde foi desenvolvido algo parecido a esse projeto só que usando tecnologias diferentes,
 entre elas o spring boot. Foi desenvolvido o frontend e backend, então decidi além de usar outras tecnologias, fazer também a parte mobile.
 
-A aplicação consiste em disponibilizar uma lista de filmes para ser feita avaliações do msm, e com essas avaliações serem exibidas em cada filme
+A aplicação consiste em disponibilizar uma lista de filmes para ser feita avaliações dos mesmos, e com essas avaliações serem exibidas em cada filme
 ## Layout mobile
 ![Mobile 1](https://github.com/silas-silva/avaFilmes/assets/img/mobile1.png) ![Mobile 2](https://github.com/silas-silva/avaFilmes/assets/img/mobile2.png) ![Mobile 3](https://github.com/silas-silva/avaFilmes/assets/img/mobile3.png)
 
