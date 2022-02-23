@@ -1,4 +1,4 @@
-# Big Game Survey 
+# AvaFilmes
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/silas-silva/avaFilmes/blob/master/LICENSE) 
 
 # Sobre o projeto
