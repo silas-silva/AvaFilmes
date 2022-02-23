@@ -30,8 +30,10 @@ function Main() {
             <View style={styles.header}>
                 <Header />
             </View>
-            {visibleList && <List openForm={openForm}/>}
-            {visibleForm && <Form movie={movie} closeForm={closeForm} />}
+            <View style={styles.body}>
+                {visibleList && <List openForm={openForm} />}
+                {visibleForm && <Form movie={movie} closeForm={closeForm} />}
+            </View>
         </View>
     );
 }
@@ -44,6 +46,9 @@ const styles = StyleSheet.create({
     },
     header: {
         height: 52,
+    },
+    body:{
+        flex: 1,
     },
 });
 
