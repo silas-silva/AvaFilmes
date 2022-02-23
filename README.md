@@ -10,7 +10,7 @@ entre elas o spring boot. Foi desenvolvido o frontend e backend, então decidi a
 
 A aplicação consiste em disponibilizar uma lista de filmes para ser feita avaliações do msm, e com essas avaliações serem exibidas em cada filme
 ## Layout mobile
-![Mobile 1](https://github.com/silas-silva/avaFilmes/assets/img/mobile1.png) ![Mobile 2](https://github.com/silas-silva/avaFilmes/assets/img/mobile2.png)
+![Mobile 1](https://github.com/silas-silva/avaFilmes/assets/img/mobile1.png) ![Mobile 2](https://github.com/silas-silva/avaFilmes/assets/img/mobile2.png) ![Mobile 3](https://github.com/silas-silva/avaFilmes/assets/img/mobile3.png)
 
 ## Layout web
 ![Web 1](https://github.com/silas-silva/avaFilmes/assets/img/web1.png)
@@ -60,7 +60,7 @@ yarn dev
 Pré-requisitos: npm / yarn
 
 ```bash
-# estando na pagina que avaFilmes 
+# estando na pagina do avaFilmes 
 # entrar na pasta do projeto front end web
 cd frontend
 
@@ -71,11 +71,26 @@ yarn install
 yarn start
 ```
 
+## Front end Mobile
+Pré-requisitos: npm / yarn, Emulador Android
+
+```bash
+# estando na pagina do avaFilmes 
+# entrar na pasta do projeto mobile
+cd mobile
+
+# instalar dependências
+yarn install
+
+# executar o projeto
+yarn android
+```
+
 # Autor
 
 Silas Silva da Costa
 
-https://www.linkedin.com/in/silas-silva-8a7515182/
+https://www.linkedin.com/in/silas-silva-costa/
 
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/silas-silva/avaFilmes/blob/master/LICENSE) 
 
