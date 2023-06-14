@@ -3,8 +3,6 @@
 
 # Sobre o projeto
 
-[link para o projeto online](https://silas-silva.herokuapp.com/avaMovies)
-
 avaFilmes é uma aplicação fullstack web e mobile, a ideia veio da semana dev superior, onde foi desenvolvido algo parecido a esse projeto só que usando tecnologias diferentes,
 entre elas o spring boot. Foi desenvolvido o frontend e backend, então decidi além de usar outras tecnologias, fazer também a parte mobile.
 
